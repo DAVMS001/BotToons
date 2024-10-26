@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen Alpha Dictionary</title>
+    <style>
+        *{
+            font-style: italic;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color:white;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            width: 300px;
+        }
+        button {
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gen Alpha Dictionary</h1>
+    <p>Type a word to find its real meaning:</p>
+
+    <input type="text" id="wordInput" placeholder="Enter a word">
+    <button onclick="findOpposite()">Find meaning</button>
+
+    <div id="result"></div>
+
+    <script>
+        // Function to fetch antonyms from the Datamuse API
+        function findOpposite() {
+            const word = document.getElementById('wordInput').value.toLowerCase();
+            const resultDiv = document.getElementById('result');
+
+            if (word) {
+                const apiUrl = `https://api.datamuse.com/words?rel_ant=${word}`;
+               
+                // Fetch antonyms from the API
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            // Display the first antonym found
+                            resultDiv.innerHTML = `The meaning of "${word}" is "<strong>${data[0].word}</strong>".`;
+                            resultDiv.classList.remove('error');
+                        } else {
+                            resultDiv.innerHTML = `Sorry, no opposite found for "${word}".`;
+                            resultDiv.classList.add('error');
+                        }
+                    })
+                    .catch(error => {
+                        resultDiv.innerHTML = `Error retrieving data. Please try again later.`;
+                        resultDiv.classList.add('error');
+                    });
+            } else {
+                resultDiv.innerHTML = `Please enter a word.`;
+                resultDiv.classList.add('error');
+            }
+        }
+    </script>
+</body>
+</html>

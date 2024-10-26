@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen Alpha Dictionary</title>
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #140202;
+        }
+        .dictionary {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .word-pair {
+            background-color: #083e7b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 150px;
+        }
+        .word-pair h2 {
+            font-size: 24px;
+            color: #4CAF50;
+        }
+        .word-pair p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Opposite Dictionary</h1>
+
+    <div class="dictionary">
+        <div class="word-pair">
+            <h2>Happy</h2>
+            <p>Sad</p>
+        </div>
+        <div class="word-pair">
+            <h2>Big</h2>
+            <p>Small</p>
+        </div>
+        <div class="word-pair">
+            <h2>Hot</h2>
+            <p>Cold</p>
+        </div>
+        <div class="word-pair">
+            <h2>Light</h2>
+            <p>Dark</p>
+        </div>
+        <div class="word-pair">
+            <h2>Fast</h2>
+            <p>Slow</p>
+        </div>
+        <div class="word-pair">
+            <h2>Rich</h2>
+            <p>Poor</p>
+        </div>
+        <div class="word-pair">
